@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dileber.gold.alipaygold.goldmbp.oldhome.OldHomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                tools:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="黄金6个月走势图"
+                android:textColor="@color/color333333"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                />
+
+            <com.drcosu.ndileber.dileberui.diagram.lineschart.QuXianChatView
+                android:id="@+id/chat"
+                android:layout_width="match_parent"
+                tools:visibility="gone"
+
+                android:layout_height="250dp" />
+
+            <FrameLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </android.support.v7.widget.RecyclerView>
+                </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+                <com.drcosu.ndileber.dileberui.emptypage.EmptyPageLayout
+                    android:id="@+id/emptyPageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.drcosu.ndileber.dileberui.emptypage.EmptyPageLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="T日买入，T+1个交易日确认，T日15:00之前按当日净值成交；15:00之后按下一交易日净值成交。"
+                />
+
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/jinzhangfu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ntName="今天涨跌幅："
+                tools:visibility="gone"
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/lianzhang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ntName="连涨（日）："
+                tools:visibility="gone"
+
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/liandie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="gone"
+
+                app:ntName="连跌（日）："
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/monthMax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="gone"
+
+                app:ntName="30天最大额度："
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/monthMin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="gone"
+
+                app:ntName="30天最小额度："
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/halfMax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="gone"
+
+                app:ntName="半年最大额度："
+                style="@style/crm_info"
+                />
+            <com.dileber.gold.alipaygold.view.ItemNameTextView
+                android:id="@+id/halfMin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:visibility="gone"
+
+                app:ntName="半年最小额度："
+                style="@style/crm_info"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分析："
+                android:textSize="18sp"
+                android:textColor="@color/color333333"
+                />
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="15dp"
+                android:gravity="top"
+                android:textColor="@color/color333333"
+                android:textSize="15dp"
+                android:background="#cfcfcf"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

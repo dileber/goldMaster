@@ -1,0 +1,3 @@
+include ':app', ":dileber",":dileberui"
+project(':dileber').projectDir = new File(settingsDir, "../ndileber/ndileber")
+project(':dileberui').projectDir = new File(settingsDir, "../dileberui/dileberui")
