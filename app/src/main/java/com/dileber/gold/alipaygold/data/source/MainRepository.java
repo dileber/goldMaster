@@ -3,8 +3,11 @@ package com.dileber.gold.alipaygold.data.source;
 
 import com.dileber.gold.alipaygold.data.model.params.FundHisDetailParams;
 import com.dileber.gold.alipaygold.data.model.params.FundNetValueParams;
+import com.dileber.gold.alipaygold.data.model.params.GetFuturesQuoteParams;
 import com.dileber.gold.alipaygold.data.model.response.FundHisDetailResponse;
 import com.dileber.gold.alipaygold.data.model.response.FundNetValueResponse;
+import com.dileber.gold.alipaygold.data.model.response.GetFuturesQuoteResponse;
+import com.dileber.gold.alipaygold.data.model.response.TouTiaoResponse;
 import com.dileber.gold.alipaygold.data.source.local.MainLocalDataSource;
 import com.dileber.gold.alipaygold.data.source.remote.MainRemoteDataSource;
 import com.drcosu.ndileber.mvp.data.BaseRepository;
@@ -82,5 +85,48 @@ public class MainRepository extends BaseRepository<MainLocalDataSource, MainRemo
     @Override
     public void saveFundNetValue(FundNetValueResponse fundNetValueResponse) {
         localDataSource.saveFundNetValue(fundNetValueResponse);
+    }
+
+    @Override
+    public Observable<Boolean> saveImage(int id) {
+        return localDataSource.saveImage(id).compose(RxTransformerHelper.<Boolean>ioToUI());
+    }
+
+    @Override
+    public Observable<GetFuturesQuoteResponse> getFuturesQuote(GetFuturesQuoteParams params) {
+        Observable<GetFuturesQuoteResponse> observable = Observable.
+                concat(localDataSource.getFuturesQuote(params),
+                        remoteDataSource.getFuturesQuote(params).
+                                doOnNext(new Action1<GetFuturesQuoteResponse>() {
+                                    @Override
+                                    public void call(GetFuturesQuoteResponse fundNetValueResponse) {
+//                                if(fundNetValueResponse!=null){
+//                                    saveFundNetValue(fundNetValueResponse);
+//                                }
+                                        /**
+                                         * cache
+                                         */
+                                    }
+                                })).compose(RxTransformerHelper.<GetFuturesQuoteResponse>ioToUI()).first();
+        return observable;
+    }
+
+    @Override
+    public Observable<TouTiaoResponse> toutiao() {
+        Observable<TouTiaoResponse> observable = Observable.
+                concat(localDataSource.toutiao(),
+                        remoteDataSource.toutiao().
+                                doOnNext(new Action1<TouTiaoResponse>() {
+                                    @Override
+                                    public void call(TouTiaoResponse fundNetValueResponse) {
+//                                if(fundNetValueResponse!=null){
+//                                    saveFundNetValue(fundNetValueResponse);
+//                                }
+                                        /**
+                                         * cache
+                                         */
+                                    }
+                                })).compose(RxTransformerHelper.<TouTiaoResponse>ioToUI()).first();
+        return observable;
     }
 }

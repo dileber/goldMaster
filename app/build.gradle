@@ -14,8 +14,8 @@ android {
         applicationId "com.dileber.gold.alipaygold"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 10102
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -46,4 +46,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.+'
     implementation 'com.android.support:design:26.+'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
 }

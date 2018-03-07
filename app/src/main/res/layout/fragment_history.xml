@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.dileber.gold.alipaygold.goldmbp.history.HistoryFragment">
 
+
+
     <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_marginTop="70dp"
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,6 +21,26 @@
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <TextView
+            android:id="@+id/gonggao"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="公告："
+            android:gravity="center"
+            android:textColor="#fff700"
+            android:background="#6e6e6e"
+            />
+        <include
+            android:id="@+id/titleList"
+            layout="@layout/item_list_gold"/>
+
+
+    </LinearLayout>
 
     <com.drcosu.ndileber.dileberui.emptypage.EmptyPageLayout
         android:id="@+id/emptyPageLayout"

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dileber.gold.alipaygold.goldmbp.nowtime.NowTimeFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="实时数据（沪金）"
+                android:drawableLeft="@mipmap/icon_bi_warn"
+                android:background="#1AFFC11A"
+                android:textColor="#FFF5A623"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textSize="13sp"
+                android:drawablePadding="5dp"
+                />
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/auChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:visibility="gone"
+                android:id="@+id/clChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="实时数据（美黄金）"
+                android:drawableLeft="@mipmap/icon_bi_warn"
+                android:background="#1AFFC11A"
+                android:textColor="#FFF5A623"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textSize="13sp"
+                android:drawablePadding="5dp"
+                />
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/gcChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</LinearLayout>

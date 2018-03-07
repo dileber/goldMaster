@@ -16,7 +16,11 @@
 
 
         >
-
+        <View
+            android:layout_width="@dimen/line"
+            android:layout_height="match_parent"
+            android:background="@color/dileber_line"
+            />
         <TextView
             android:id="@+id/timeT"
             android:layout_width="100dp"
@@ -35,7 +39,8 @@
             />
         <TextView
             android:id="@+id/valueT"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:minHeight="18dp"
             android:textColor="#151515"
@@ -51,14 +56,37 @@
             />
         <TextView
             android:id="@+id/valueT2"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:minHeight="18dp"
+            android:textColor="#151515"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            tools:text="VALUE"
+            android:gravity="center"
+            />
+        <View
+            android:layout_width="@dimen/line"
+            android:layout_height="match_parent"
+            android:background="@color/dileber_line"
+            />
+        <TextView
+            android:id="@+id/valueT3"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:minHeight="18dp"
             android:textColor="#151515"
             android:textSize="15sp"
             tools:text="VALUE"
+            android:layout_weight="1"
             android:gravity="center"
             />
+        <View
+            android:layout_width="@dimen/line"
+            android:layout_height="match_parent"
+            android:background="@color/dileber_line"
+            />
+
     </LinearLayout>
 
     <View

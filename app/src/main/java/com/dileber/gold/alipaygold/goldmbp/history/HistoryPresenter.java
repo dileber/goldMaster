@@ -43,7 +43,7 @@ public class HistoryPresenter extends DileberRxPresenter<HistoryContract.View, M
 
     protected boolean isRefreshLast = true;
     protected int currentPage = 1;
-    protected int pageSize = 10;
+    protected int pageSize = 20;
 
     private void request(int currentPage) {
         this.currentPage = currentPage;

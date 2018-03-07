@@ -5,10 +5,15 @@ import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.widget.TextView;
 
 import com.dileber.gold.alipaygold.R;
+import com.dileber.gold.alipaygold.adapter.NoTimeAdapter;
 import com.dileber.gold.alipaygold.data.model.response.FundNetValueResponse;
+import com.dileber.gold.alipaygold.data.model.response.TouTiaoResponse;
 import com.dileber.gold.alipaygold.data.source.MainRepository;
 import com.dileber.gold.alipaygold.utils.GoldAxisValueFormatter;
 import com.dileber.gold.alipaygold.utils.GoldYAxisValueFormatter;
@@ -62,26 +67,33 @@ public class HomeFragment extends UBaseFragment<HomePresenter> implements HomeCo
     protected HomePresenter createPresenterInstance() {
         return new HomePresenter(this, MainRepository.getInstance());
     }
-    ItemNameTextView jinzhangfu;
-    ItemNameTextView lianzhang;
-    ItemNameTextView liandie;
-    ItemNameTextView monthMax;
-    ItemNameTextView monthMin;
-    ItemNameTextView halfMax;
-    ItemNameTextView halfMin;
-    TextView content;
+//    ItemNameTextView jinzhangfu;
+//    ItemNameTextView lianzhang;
+//    ItemNameTextView liandie;
+//    ItemNameTextView monthMax;
+//    ItemNameTextView monthMin;
+//    ItemNameTextView halfMax;
+//    ItemNameTextView halfMin;
+//    TextView content;
     private LineChart mChart;
     MyMarkerView mv;
+    NoTimeAdapter noTimeAdapter;
     @Override
     protected void initView(Bundle savedInstanceState) {
-        jinzhangfu = findView(R.id.jinzhangfu);
-        liandie = findView(R.id.liandie);
-        lianzhang = findView(R.id.lianzhang);
-        monthMin = findView(R.id.monthMin);
-        monthMax = findView(R.id.monthMax);
-        halfMax = findView(R.id.halfMax);
-        halfMin = findView(R.id.halfMin);
-        content = findView(R.id.content);
+
+        recyclerView = findView(R.id.recycle);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivityContext()));
+        noTimeAdapter = new NoTimeAdapter(getActivityContext());
+        recyclerView.setAdapter(noTimeAdapter);
+
+//        jinzhangfu = findView(R.id.jinzhangfu);
+//        liandie = findView(R.id.liandie);
+//        lianzhang = findView(R.id.lianzhang);
+//        monthMin = findView(R.id.monthMin);
+//        monthMax = findView(R.id.monthMax);
+//        halfMax = findView(R.id.halfMax);
+//        halfMin = findView(R.id.halfMin);
+//        content = findView(R.id.content);
         mChart =  findView(R.id.fundChart);
         mChart.setDrawGridBackground(false);
         // no description text
@@ -120,8 +132,10 @@ public class HomeFragment extends UBaseFragment<HomePresenter> implements HomeCo
 
         mChart.animateX(2500);
         mPresenter.fundNetValue();
+        mPresenter.toutiao();
     }
 
+    RecyclerView recyclerView;
 
     @Override
     public int layoutViewId() {
@@ -183,16 +197,21 @@ public class HomeFragment extends UBaseFragment<HomePresenter> implements HomeCo
             // set data
             mChart.setData(data);
         }
+//        jinzhangfu.setText(uGold.getJinZhangFu());
+//        lianzhang.setText(uGold.zhangci+"日");
+//        liandie.setText(uGold.dieci+"日");
+//        monthMax.setText(uGold.oneMonthMax+"元");
+//        monthMin.setText(uGold.oneMonthMin+"元");
+//
+//        halfMax.setText(uGold.halfYearMax+"元");
+//        halfMin.setText(uGold.halfYearMin+"元");
+//        content.setText(uGold.getTip());
 
-        lianzhang.setText(uGold.zhangci+"日");
-        liandie.setText(uGold.dieci+"日");
-        monthMax.setText(uGold.oneMonthMax+"元");
-        monthMin.setText(uGold.oneMonthMin+"元");
+    }
 
-        halfMax.setText(uGold.halfYearMax+"元");
-        halfMin.setText(uGold.halfYearMin+"元");
-        content.setText(uGold.getTip());
-
+    @Override
+    public void showToutiao(List<TouTiaoResponse.Data.Items> items) {
+        noTimeAdapter.refresh(items);
     }
 
 }

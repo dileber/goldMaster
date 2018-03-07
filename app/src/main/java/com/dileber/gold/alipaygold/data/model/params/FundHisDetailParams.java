@@ -10,8 +10,8 @@ import com.dileber.gold.alipaygold.data.model.base.BaseParams;
 public class FundHisDetailParams extends BaseParams{
 
 
-    public int pageNo ;
-    public int pageSize ;
+    public String pageNo ;
+    public String pageSize ;
     public String fundCode ;
     public String startDate;
     public String endDate;
@@ -30,8 +30,8 @@ public class FundHisDetailParams extends BaseParams{
         }
 
         public FundHisDetailParams.Builder pageInfo(int pageNo,int pageSize){
-            params.pageNo = pageNo;
-            params.pageSize = pageSize;
+            params.pageNo = String.valueOf(pageNo);
+            params.pageSize = String.valueOf(pageSize);
             return this;
         }
 

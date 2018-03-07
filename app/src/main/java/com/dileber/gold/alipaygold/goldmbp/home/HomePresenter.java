@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.dileber.gold.alipaygold.data.model.params.FundNetValueParams;
 import com.dileber.gold.alipaygold.data.model.response.FundNetValueResponse;
+import com.dileber.gold.alipaygold.data.model.response.TouTiaoResponse;
 import com.dileber.gold.alipaygold.data.source.MainRepository;
 import com.drcosu.ndileber.mvp.presenter.DileberRxPresenter;
 import com.drcosu.ndileber.tools.UTime;
@@ -57,6 +58,26 @@ public class HomePresenter extends DileberRxPresenter<HomeContract.View,MainRepo
                 mView.showChat(fundNetValueResponse);
             }
 
+        }));
+    }
+
+    @Override
+    public void toutiao() {
+        add(mDataSource.toutiao().subscribe(new RxNetworkResponseObserver<TouTiaoResponse>() {
+            @Override
+            public void onResponseFail(Exception e) {
+
+            }
+
+            @Override
+            public void onBeforeResponseOperation() {
+
+            }
+
+            @Override
+            public void onResponse(TouTiaoResponse touTiaoResponse) {
+                mView.showToutiao(touTiaoResponse.data.items);
+            }
         }));
     }
 }

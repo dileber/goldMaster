@@ -18,6 +18,10 @@ public class GOLDConfig extends BaseConfiger{
 
     public static final String BOSERA_URL = "http://www.bosera.com/";
 
+    public static final String ZHANGQI_URL = "http://zhangqi.gwecaopan.com";
+
+    public static final String TOUTIAO_URL = "https://api-prod.wallstreetcn.com/";
+
     public static final String BASE_URL = "";
 
 }
