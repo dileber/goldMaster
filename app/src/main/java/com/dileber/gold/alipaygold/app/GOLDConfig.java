@@ -22,6 +22,6 @@ public class GOLDConfig extends BaseConfiger{
 
     public static final String TOUTIAO_URL = "https://api-prod.wallstreetcn.com/";
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://www.dreamsoso.com";
 
 }

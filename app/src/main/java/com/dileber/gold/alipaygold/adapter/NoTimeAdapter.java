@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.dileber.gold.alipaygold.R;
 import com.dileber.gold.alipaygold.data.model.response.TouTiaoResponse;
+import com.dileber.gold.alipaygold.goldmbp.web.WebViewActivity;
 import com.drcosu.ndileber.tools.UTime;
 import com.drcosu.ndileber.view.recycle.DileberAdapter;
 import com.drcosu.ndileber.view.recycle.DileberHolder;
@@ -43,12 +44,17 @@ public class NoTimeAdapter extends DileberAdapter<NoTimeAdapter.VH,TouTiaoRespon
         }
 
         @Override
-        public void load(Context context) {
+        public void load(final Context context) {
             time.setText(UTime.getDateStr(UTime.Pattern.y_m_d_h_m_s,model.resource.display_time*1000));
             content.setText(model.resource.content_short);
             title.setText(model.resource.title);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    WebViewActivity.startFrom(context,"http://m-prod.goldtoutiao.com/articles/"+model.resource.id);
+                }
+            });
 
-//            http://m-prod.goldtoutiao.com/articles/3241897
         }
     }
 }

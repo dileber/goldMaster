@@ -32,23 +32,23 @@ public class MainRemoteDataSource extends BaseRemoteDataSource implements MainDa
     HRetrofit hRetrofit;
     MainService service;
 
-    HRetrofit hRetrofit2;
-    MainService service2;
-
-    HRetrofit hRetrofit3;
-    MainService service3;
+//    HRetrofit hRetrofit2;
+//    MainService service2;
+//
+//    HRetrofit hRetrofit3;
+//    MainService service3;
 
 
     private MainRemoteDataSource() {
 
-        hRetrofit = HRetrofit.getInstence(GOLDConfig.BOSERA_URL);
+        hRetrofit = HRetrofit.getInstence(GOLDConfig.BASE_URL);
         service = hRetrofit.retrofit.create(MainService.class);
-
-        hRetrofit2 = HRetrofit.getInstence(GOLDConfig.ZHANGQI_URL);
-        service2 = hRetrofit2.retrofit.create(MainService.class);
-
-        hRetrofit3 = HRetrofit.getInstence(GOLDConfig.TOUTIAO_URL);
-        service3 = hRetrofit3.retrofit.create(MainService.class);
+//
+//        hRetrofit2 = HRetrofit.getInstence(GOLDConfig.ZHANGQI_URL);
+//        service2 = hRetrofit2.retrofit.create(MainService.class);
+//
+//        hRetrofit3 = HRetrofit.getInstence(GOLDConfig.TOUTIAO_URL);
+//        service3 = hRetrofit3.retrofit.create(MainService.class);
     }
 
     public static MainRemoteDataSource getInstance() {
@@ -64,11 +64,13 @@ public class MainRemoteDataSource extends BaseRemoteDataSource implements MainDa
 
     @Override
     public Observable<FundNetValueResponse> fundNetValue(FundNetValueParams params) {
+//        return service.fundNetValue(params.netValueType,params.fundCode,params.startDate,params.endDate);
         return service.fundNetValue(params);
     }
 
     @Override
     public Observable<FundHisDetailResponse> fundHisDetail(FundHisDetailParams params) {
+//        return service.fundHisDetail(params.fundCode,params.startDate,params.endDate,params.pageNo,params.pageSize);
         return service.fundHisDetail(params);
     }
 
@@ -84,12 +86,12 @@ public class MainRemoteDataSource extends BaseRemoteDataSource implements MainDa
 
     @Override
     public Observable<GetFuturesQuoteResponse> getFuturesQuote(GetFuturesQuoteParams params) {
-        return service2.getFuturesQuote(params.commodityNo,params.type);
+        return service.getFuturesQuote(params.commodityNo,params.type);
     }
 
     @Override
     public Observable<TouTiaoResponse> toutiao() {
-        return service3.toutiao("gold-platform","20",null,"gold-metal");
+        return service.toutiao("gold-platform","20",null,"gold-metal");
     }
 
 }

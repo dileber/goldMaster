@@ -22,6 +22,13 @@ import rx.Observable;
 
 public interface MainService {
 
+    @GET(ApiMethods.fundNetValue)
+    Observable<FundNetValueResponse> fundNetValue(@Query("netValueType") String netValueType,@Query("fundCode") String fundCode,@Query("startDate") String startDate,@Query("endDate") String endDate);
+
+    @GET(ApiMethods.fundHisDetail)
+    Observable<FundHisDetailResponse> fundHisDetail(@Query("fundCode") String fundCode,@Query("startDate") String startDate,@Query("endDate") String endDate,@Query("pageNo")String pageNo,@Query("pageSize")String pageSize);
+
+
     @POST(ApiMethods.fundNetValue)
     Observable<FundNetValueResponse> fundNetValue(@Body FundNetValueParams params);
 

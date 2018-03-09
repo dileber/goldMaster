@@ -137,9 +137,9 @@ public class HistoryFragment extends UBaseFragment<HistoryPresenter> implements 
                 FundHisDetailResponse.Data.ResultList resultList= fundHisDetailResponse.data.resultList.get(0);
                 StringBuffer sb = new StringBuffer("公告：");
                 if(Math.abs(Double.parseDouble(resultList.rate))>=0.5){
-                    sb.append("今日涨跌幅比较大，投资要谨慎，");
+                    sb.append(resultList.date+"日涨跌幅比较大，投资要谨慎，");
                 }else{
-                    sb.append("今日涨跌幅比较小，注意投资，");
+                    sb.append(resultList.date+"日涨跌幅比较小，注意投资，");
                 }
 
 

@@ -51,9 +51,12 @@
         </activity>
         <activity android:name=".goldmbp.text1.Main2Activity" />
         <activity android:name=".goldmbp.text2.Main3Activity" />
-        <activity android:name=".AppActivity">
-
-        </activity>
+        <activity android:name=".AppActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".goldmbp.web.WebViewActivity"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

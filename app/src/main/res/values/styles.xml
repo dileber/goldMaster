@@ -11,4 +11,9 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingBottom">15dp</item>
     </style>
+
+
+    <style name="LoadingBarStyle" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/layer_list_loading_bar</item>
+    </style>
 </resources>
