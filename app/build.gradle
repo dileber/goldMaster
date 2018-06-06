@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword 'shi6688'
+            keyPassword 'shi'
             storeFile file('E:/mykey/mykey.jks')
-            storePassword 'shi6688'
+            storePassword 'shi'
         }
     }
     compileSdkVersion 26
